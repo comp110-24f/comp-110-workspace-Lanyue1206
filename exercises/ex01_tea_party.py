@@ -9,7 +9,7 @@ def main_planner(guests: int) -> None:
     print("A Cozy Tea Party for", guests, "People!")
     print("Tea Bags:", tea_bags(guests))
     print("Treats:", treats(guests))
-    print("Cost:$" + str(cost(tea_bags(guests), treats(guests))))
+    print("Cost: $" + str(cost(tea_bags(guests), treats(guests))))
 
 
 # make a function call to the subprogram
