@@ -43,7 +43,6 @@ def cost(tea_count: int, treat_count: int) -> float:
 # Calculate the total cost by adding two costs together
 # the unit cost of teas is 0.5 and unit cost of treats is 0.75.
 
-
 if __name__ == "__main__":
     main_planner(guests=int(input("How many guests are attending your tea party?")))
 # ask user for the number of guests and calling "main_planner"

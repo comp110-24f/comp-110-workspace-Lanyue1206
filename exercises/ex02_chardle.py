@@ -3,44 +3,45 @@
 __author__ = "730679606"
 
 
-# Gather a input of word from the user.
 def input_word() -> str:
+    """This function gathers an input of word from the user."""
     word = str(input("Enter a 5-character word: "))
-
-    # Check if the word only has 5 chracters.
-    # If not, print error message and exit the program early.
-    if len(word) != 5:
-        print("Error: Word must contain 5 characters.")
+    if len(word) != 5:  # Check if the word only has 5 characters.
+        print(
+            "Error: Word must contain 5 characters."
+        )  # If not, print error message and exit the program early.
         exit()
     else:
         return word
 
 
-# Gather a input of letter from the user.
 def input_letter() -> str:
+    """This function gathers an input of letter from the user"""
     letter = str(input("Enter a single character: "))
 
-    # Check if the letter only has single chracter.
-    # If not, print error message and exit the program early.
-    if len(letter) != 1:
-        print("Error: Character must be a single character.")
+    if len(letter) != 1:  # Check if the letter only has single character.
+        print(
+            "Error: Character must be a single character."
+        )  # If not, print error message and exit the program early.
         exit()
     else:
         return letter
 
 
 def contains_char(word: str, letter: str) -> None:
-    # Tell the user the begining of the searching progress.
-    print("Searching for", letter, "in", word)
-    # Initialize the count number to 0.
-    count = 0
+    """This function checks if the letter is contained in the word."""
+    print(
+        "Searching for", letter, "in", word
+    )  # Tell the user the beginning of the searching progress.
 
-    # Use if to check indices of matches
-    if letter == word[0]:
-        # Print the message to notic the user if the letter is found at this index.
-        print(letter, "found at index 0")
-        # If the condition is true, the count number will increase 1.
-        count += 1
+    count = 0  # Initialize the count number to 0.
+
+    if letter == word[0]:  # Check indices of matches
+        print(
+            letter, "found at index 0"
+        )  # Print the message to notice the user if the letter is found at this index.
+        count += 1  # If the condition is true, the count number will increase 1.
+    # Repeat searching for the rest of four indices.
     if letter == word[1]:
         print(letter, "found at index 1")
         count += 1
@@ -54,26 +55,24 @@ def contains_char(word: str, letter: str) -> None:
         print(letter, "found at index 4")
         count += 1
 
-    # Print the number of instances found in word if the count number >= 1
-    if count >= 1:
-        print(count, "instances of", letter, "found in", word)
-
-    # Print the notice of no instances found
-    # when input letter is not matched with any letters in the word.
-    if (
-        letter != word[0]
-        and letter != word[1]
-        and letter != word[2]
-        and letter != word[3]
-        and letter != word[4]
-    ):
-        print("No instances of", letter, "found in", word)
+    # Check if no instances were found
+    if count == 0:
+        print(
+            "No instances of", letter, "found in", word
+        )  # Print the notice of no instances found if the count number = 0
+    elif (
+        count == 1
+    ):  # Print the number of instances found in word if the count number >= 1
+        print(count, "instance of", letter, "found in", word)  # The output is singular
+    else:
+        print(count, "instances of", letter, "found in", word)  # The output is plural
 
 
-# Define the main function that calls the functions I just defined.
 def main() -> None:
+    """The main function calls the functions I just defined."""
     contains_char(word=input_word(), letter=input_letter())
 
 
+# Call the main function.
 if __name__ == "__main__":
     main()
